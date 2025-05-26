@@ -4,7 +4,7 @@ er selected alles mit dem tag ".cs-btn", das wo ich das design her habe
 speichert es als node liste (https://developer.mozilla.org/de/docs/Web/API/NodeList)
 ist ein bisschen wie ein array aber hat nicht alle funktionen, funktioniert hier aber
 */
-const buttons = document.querySelectorAll('.cs-btn');
+//const buttons = document.querySelectorAll('.cs-btn');
 let input = '';
     /*Mit der NodeList hier funktioniert das foreach nur in neueren Browsern(scheinbar???)
     andernfalls hätte man es auch in ein array umwandeln können, so:
