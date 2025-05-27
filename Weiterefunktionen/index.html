@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taschenrechner</title>
+  <!--das design ist von hier-->
+  <!--https://cs16.samke.me/ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ekmas/cs16.css@main/css/cs16.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <div class="calculator">
+    <h3 id="Ueberschrift" style="display:none;"></h3>
+    <div id="display2" class="cs-input calculator-display" style="display: none;">0</div>
+    <div id="ProzentDisplay" class="cs-input calculator-display" style="display:none;">
+    
+      <div class="input">
+        <input type="number" class="cs-input" id="input1">
+        <select class="prozentselect" name="Rechenoperation" id="prozentselect" onchange="selected()">
+          <option value="prozentvon"> % von</option>
+          <option value="inprozent"> in %</option>
+        </select>
+        <input type="number" class="cs-input" id="input2">
+      </div>
+    </div>
+
+    <div id="display" class="cs-input calculator-display">0</div>
+    
+    <div class="calculator-buttons">
+      <button class="cs-btn">←</button>
+      <button class="cs-btn">C</button>
+      <button class="cs-btn">(</button>
+      <button class="cs-btn">)</button>
+      <button class="cs-btn">%</button>
+      <button class="cs-btn">7</button>
+      <button class="cs-btn">8</button>
+      <button class="cs-btn">9</button>
+      <button class="cs-btn">/</button>
+      <button class="cs-btn">x^2</button>
+      <button class="cs-btn">4</button>
+      <button class="cs-btn">5</button>
+      <button class="cs-btn">6</button>
+      <button class="cs-btn">*</button>
+      <button class="cs-btn">lorem</button>
+      <button class="cs-btn">1</button>
+      <button class="cs-btn">2</button>
+      <button class="cs-btn">3</button>
+      <button class="cs-btn">-</button>
+      <button class="cs-btn">lorem</button>
+      <button class="cs-btn">.</button>
+      <button class="cs-btn">0</button>
+      <button class="cs-btn">+</button>
+      <button class="cs-btn">=</button>
+      <button class="cs-btn">lorem</button>
+      
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+<!--
+┌────┬────┬────┬────┐
+│ ⌫ │  C │ (  │ )  │ der rest
+├────┼────┼────┼────┤der rest
+│  7 │  8 │  9 │  / │der rest
+├────┼────┼────┼────┤der rest
+│  4 │  5 │  6 │  * │der rest
+├────┼────┼────┼────┤der rest
+│  1 │  2 │  3 │  - │der rest
+├────┼────┼────┼────┤der rest
+│  0 │  . │  = │  + │der rest
+└────┴────┴────┴────┘
+-->
