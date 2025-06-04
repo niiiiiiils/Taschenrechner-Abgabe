@@ -150,29 +150,7 @@ function Prozentumbau() {
     wrong = false;
   }
 }
-function waehrungen()
-{
 
-}
-function Waehrungsumbau() {
-  var displaynormal = document.getElementById("display");
-  var displaywaehrung = document.getElementById("WaehrungsDisplay");
-  var UeberschriftW = document.getElementById("UeberschriftWaehrungen");
-  var display3 = document.getElementById("display3");
-
-  if (displaynormal.style.display !== "none") {
-    displaynormal.style.display = "none";
-    displaywaehrung.style.display = "flex"; // wichtig: flex für Zentrierung!
-    UeberschriftW.style.display = "flex";
-    UeberschriftW.textContent = "Währungsrechner";
-    display3.style.display = "block";
-  } else {
-    displaynormal.style.display = "block";
-    displaywaehrung.style.display = "none";
-    UeberschriftW.style.display = "none";
-    display3.style.display = "none";
-  }
-}
 
 function selected(){
   var Überschrift = document.getElementById("Ueberschrift");
@@ -190,7 +168,7 @@ function selected(){
   }
   else
   {
-    throw new Error(alert("error"))
+    alert(error);
   }
 }
 
