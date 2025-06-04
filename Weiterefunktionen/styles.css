@@ -54,7 +54,11 @@ body {
   margin-bottom: 15px;
   color: white;
 }
-
+.weahrungselect{
+    font-size: 1.2rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+}
 .prozentselect {
   font-size: 1.2rem;
   padding: 0.3rem 0.6rem;

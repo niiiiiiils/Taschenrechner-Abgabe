@@ -1,4 +1,5 @@
-const wrong = false;
+//let damit es änderbar ist
+let wrong = false;
 const display = document.getElementById('display');
 //20 minuten lebenszeit weil die globale variable display heisst 
 var displayprozent = document.getElementById("ProzentDisplay");
@@ -52,6 +53,20 @@ let input = '';
         }
         else 
         {      
+          if (input.includes('mod'))
+          {
+            
+            let split = input.split('mod');
+            if(split.length > 2)
+            {
+              input = 0;
+              display.textContent('Fehler');
+            }
+            else
+            {
+            input = eval(split[0]) % eval(split[1]);
+            }
+          }
           //Try um sicher zu gehen das kein fehler kommt
           try {
             //eval ist eine fürchterliche lösung wenn man das input feld nicht schützt
@@ -66,24 +81,37 @@ let input = '';
         }
       }
       else if (wert === 'x^2') {
-        const ops = ["+", "-", "*", "/"];
+        const operatoren = ["+", "-", "*", "/"];
         let pos = Math.max(
           input.lastIndexOf("+"),
           input.lastIndexOf("-"),
           input.lastIndexOf("*"),
           input.lastIndexOf("/")
         );
+        
+        //das mit "? und : ist eine kurze if form"
+        //Bedingung ? Ausdruck_wenn_true : Ausdruck_wenn_false
+        //also wenn pos === -1 (also kein operator vorhanden)
+        // dann ist zahl input, wenn nicht dann wird die poisition des letzten operators genommen
+        //dann wird bei der zahl hinter dem operator genommen
         let zahl = pos === -1 ? input : input.slice(pos + 1);
+        //ist sicherer als einfach zahl zu parsen
         let num = parseFloat(zahl);
-      
+        //wenn es keine nummer ist dann machen wir einen fehler
         if (isNaN(num)) {
           display.textContent = "Fehler: Keine Zahl zum Quadrieren";
         } else {
+          //wir quadrieren das und machen es als quadrat zur variable
           let quad = (num * num).toString();
           // Intern input mit Ergebnis ersetzen
+          // wenn kein rechenzeichen dann leer
+          // wenn nicht leer dann nimmt er den teil von input start
+          //und den teil des input bis zum letzten rechenzeichen +1 also danach und machen da das quadrierte dran
+          //also intern
           input = (pos === -1 ? "" : input.slice(0, pos + 1)) + quad;
         
-          // Im Display schön anzeigen: (Zahl)^2
+          
+          //display anzeige ist selbes konzept nur das wir es anders schreiben mit `(${zahl}^2)`
           display.textContent = (pos === -1 ? "" : input.slice(0, pos + 1)) + `(${zahl})^2`;
         }
       }
@@ -122,6 +150,30 @@ function Prozentumbau() {
     wrong = false;
   }
 }
+function waehrungen()
+{
+
+}
+function Waehrungsumbau() {
+  var displaynormal = document.getElementById("display");
+  var displaywaehrung = document.getElementById("WaehrungsDisplay");
+  var UeberschriftW = document.getElementById("UeberschriftWaehrungen");
+  var display3 = document.getElementById("display3");
+
+  if (displaynormal.style.display !== "none") {
+    displaynormal.style.display = "none";
+    displaywaehrung.style.display = "flex"; // wichtig: flex für Zentrierung!
+    UeberschriftW.style.display = "flex";
+    UeberschriftW.textContent = "Währungsrechner";
+    display3.style.display = "block";
+  } else {
+    displaynormal.style.display = "block";
+    displaywaehrung.style.display = "none";
+    UeberschriftW.style.display = "none";
+    display3.style.display = "none";
+  }
+}
+
 function selected(){
   var Überschrift = document.getElementById("Ueberschrift");
   var selection = document.getElementById("prozentselect").value;
@@ -141,6 +193,7 @@ function selected(){
     throw new Error(alert("error"))
   }
 }
+
 function Prozentrechnung()
 {
   const ProzentDisplay = document.getElementById("ProzentDisplay");
